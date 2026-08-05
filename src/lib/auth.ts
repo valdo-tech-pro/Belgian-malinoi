@@ -2,9 +2,11 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || "fallback-secret-change-me"
-);
+const jwtSecretEnv = process.env.JWT_SECRET;
+if (!jwtSecretEnv) {
+  throw new Error("JWT_SECRET environment variable is not defined. Please add it to your .env file or Vercel dashboard.");
+}
+const JWT_SECRET = new TextEncoder().encode(jwtSecretEnv);
 
 const COOKIE_NAME = "malinois_admin_session";
 
