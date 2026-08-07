@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Available Belgian Malinois Puppies",
   description:
-    "Browse and search available health-tested Belgian Malinois puppies from working lines in Belgium. Filter by sex, status and price.",
+    "Browse and search available health-tested Belgian Malinois puppies from working lines in the US. Filter by sex, status and price.",
   alternates: { canonical: "/puppies" },
 };
 
