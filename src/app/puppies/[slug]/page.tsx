@@ -98,7 +98,7 @@ export default async function PuppyDetailPage({
     },
     offers: {
       "@type": "Offer",
-      priceCurrency: "EUR",
+      priceCurrency: "USD",
       price: puppy.price,
       availability:
         puppy.status === "Available"
@@ -183,7 +183,7 @@ export default async function PuppyDetailPage({
             </h1>
             <p className="text-charcoal/70 mb-6">
               {puppy.sex} · Born{" "}
-              {new Date(puppy.birthDate).toLocaleDateString("en-GB", {
+              {new Date(puppy.birthDate).toLocaleDateString("en-US", {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
