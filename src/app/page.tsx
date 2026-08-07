@@ -181,7 +181,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="relative">
-            <div className="aspect-[4/5] bg-sage/50 rounded-sm overflow-hidden">
+            <div className="aspect-[4/3] bg-sage/50 rounded-sm overflow-hidden">
               <div
                 className="w-full h-full bg-cover bg-center opacity-80"
                 style={{
