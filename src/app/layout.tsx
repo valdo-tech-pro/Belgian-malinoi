@@ -11,7 +11,7 @@ const siteName = "Belgian Malinois Special Breed";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Premium Belgian Malinois Puppies | Belgium`,
+    default: `${siteName} | Premium Belgian Malinois Puppies | USA`,
     template: `%s | ${siteName}`,
   },
   description:
