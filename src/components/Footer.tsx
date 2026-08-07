@@ -11,7 +11,7 @@ export function Footer() {
           </div>
           <p className="text-sm leading-relaxed max-w-sm">
             Premium working-line Belgian Malinois puppies. Health tested.
-            Temperamentally sound. Raised in Belgium.
+            Temperamentally sound. Raised in the United States.
           </p>
         </div>
         <div>
@@ -34,8 +34,8 @@ export function Footer() {
             Contact
           </div>
           <div className="space-y-2 text-sm">
-            <p>Belgium</p>
-            <p>inquiries@belgianmalinoisspecialbreed.be</p>
+            <p>USA</p>
+            <p>inquiries@belgianmalinoisspecialbreed.com</p>
           </div>
         </div>
         <div>
