@@ -8,14 +8,14 @@ export function JsonLd() {
     "@id": `${siteUrl}/#organization`,
     name: "Belgian Malinois Special Breed",
     description:
-      "Premium kennel specializing in health-tested working-line Belgian Malinois puppies in Belgium.",
+      "Premium kennel specializing in health-tested working-line Belgian Malinois puppies in the United States.",
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/og-image.jpg`,
     address: {
       "@type": "PostalAddress",
       addressCountry: "BE",
-      addressLocality: "Belgium",
+      addressLocality: "United States",
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -23,7 +23,7 @@ export function JsonLd() {
     },
     areaServed: ["BE", "EU", "Europe"],
     priceRange: "€€€",
-    currenciesAccepted: "EUR",
+    currenciesAccepted: "USD",
     paymentAccepted: "Bank Transfer, Cash",
     sameAs: [],
   };
@@ -35,7 +35,7 @@ export function JsonLd() {
     url: siteUrl,
     name: "Belgian Malinois Special Breed",
     description:
-      "Premium health-tested Belgian Malinois puppies from working lines in Belgium.",
+      "Premium health-tested Belgian Malinois puppies from working lines in the United States.",
     publisher: {
       "@id": `${siteUrl}/#organization`,
     },

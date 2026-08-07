@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description:
-    "Premium health-tested Belgian Malinois puppies from working lines in Belgium. Official HD/ED scores, DNA panel, excellent temperament. Inquire about available puppies.",
+    "Premium health-tested Belgian Malinois puppies from working lines in the United States. Official HD/ED scores, DNA panel, excellent temperament. Inquire about available puppies.",
   keywords: [
     "Belgian Malinois puppies",
     "Belgian Malinois for sale",
-    "Malinois kennel Belgium",
+    "Malinois kennel USA",
     "working line Malinois",
     "health tested Malinois",
     "Belgian Malinois breeder",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName,
     title: `${siteName} | Premium Belgian Malinois Puppies`,
     description:
-      "Health-tested Belgian Malinois puppies from carefully selected working bloodlines. Raised in Belgium with verified HD/ED and DNA clearances.",
+      "Health-tested Belgian Malinois puppies from carefully selected working bloodlines. Raised in the United States with verified HD/ED and DNA clearances.",
     images: [
       {
         url: "/og-image.jpg",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteName} | Premium Belgian Malinois Puppies`,
     description:
-      "Health-tested Belgian Malinois puppies from working lines in Belgium. Official clearances, excellent temperament.",
+      "Health-tested Belgian Malinois puppies from working lines in the United States. Official clearances, excellent temperament.",
     images: ["/og-image.jpg"],
   },
   robots: {

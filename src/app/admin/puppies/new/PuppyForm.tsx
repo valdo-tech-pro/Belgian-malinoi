@@ -64,7 +64,7 @@ export function PuppyForm() {
           <input id="color" name="color" className={input} placeholder="Fawn" required />
         </div>
         <div>
-          <label className={label} htmlFor="price">Price (EUR) *</label>
+          <label className={label} htmlFor="price">Price (USD) *</label>
           <input id="price" name="price" type="number" className={input} placeholder="1500" required />
         </div>
         <div>
@@ -118,7 +118,7 @@ export function PuppyForm() {
           <textarea id="description" name="description" rows={4} className={input} required />
         </div>
         <div>
-          <label className={label} htmlFor="deposit">Deposit (EUR)</label>
+          <label className={label} htmlFor="deposit">Deposit (USD)</label>
           <input id="deposit" name="deposit" type="number" className={input} defaultValue={500} />
         </div>
       </div>
