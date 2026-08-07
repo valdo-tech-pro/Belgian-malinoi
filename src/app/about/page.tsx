@@ -4,12 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Our Kennel – Philosophy & Health Standards",
   description:
-    "Learn about Belgian Malinois Special Breed: our philosophy of temperament-first breeding, official HD/ED and DNA testing, and raising puppies in Belgium.",
+    "Learn about Belgian Malinois Special Breed: our philosophy of temperament-first breeding, official HD/ED and DNA testing, and raising puppies in the United States.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Our Kennel | Belgian Malinois Special Breed",
     description:
-      "Temperament first. Structure second. Transparent health testing and purposeful raising of Belgian Malinois in Belgium.",
+      "Temperament first. Structure second. Transparent health testing and purposeful raising of Belgian Malinois in the United States.",
   },
 };
 
@@ -22,7 +22,7 @@ export default function AboutPage() {
             About the Kennel
           </p>
           <h1 className="font-serif text-5xl md:text-6xl max-w-3xl">
-            Raised with intention in the heart of Belgium
+            Raised with intention in the heart of US
           </h1>
         </div>
       </section>
@@ -46,7 +46,7 @@ export default function AboutPage() {
               socialization required to become a confident, stable adult.
             </p>
             <p className="text-charcoal/80 leading-relaxed">
-              Located in Belgium — the historic cradle of the breed — we
+              Located in the United States, we
               maintain strong connections to proven working lines while ensuring
               every dog we produce is suited for the modern demands of sport,
               service or active family life.
