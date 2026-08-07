@@ -186,7 +186,7 @@ export default async function HomePage() {
                 className="w-full h-full bg-cover bg-center opacity-80"
                 style={{
                   backgroundImage:
-                    "url('https://images.unsplash.com/photo-1558788353-f76d92427f16?q=80&w=1000')",
+                    "url('/malinois.jpg')",
                 }}
               />
             </div>
