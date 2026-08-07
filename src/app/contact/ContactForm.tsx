@@ -91,7 +91,7 @@ export function ContactForm() {
             type="tel"
             name="phone"
             className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-            placeholder="+32 ..."
+            placeholder="+1 ..."
           />
         </div>
         <div>
@@ -100,7 +100,7 @@ export function ContactForm() {
             type="text"
             name="country"
             className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-            placeholder="Belgium"
+            placeholder="USA"
           />
         </div>
       </div>
