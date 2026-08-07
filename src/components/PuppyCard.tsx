@@ -21,9 +21,9 @@ type PuppyCardProps = {
 };
 
 function formatPrice(price: number) {
-  return new Intl.NumberFormat("en-BE", {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "EUR",
+    currency: "USD",
     maximumFractionDigits: 0,
   }).format(price);
 }
