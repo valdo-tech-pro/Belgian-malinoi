@@ -5,7 +5,7 @@ import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact & Inquiry",
   description:
-    "Inquire about available Belgian Malinois puppies from Belgian Malinois Special Breed. Tell us about your experience and plans. Located in Belgium.",
+    "Inquire about available Belgian Malinois puppies from Belgian Malinois Special Breed. Tell us about your experience and plans. Located in the United States.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact & Inquiry | Belgian Malinois Special Breed",
