@@ -44,7 +44,7 @@ export default async function HomePage() {
         <div className="relative max-w-7xl mx-auto px-6 pt-20">
           <div className="max-w-2xl">
             <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">
-              Belgium · Premium Working Lines
+              USA · Premium Working Lines
             </p>
             <h1 className="font-serif text-5xl md:text-7xl text-cream leading-tight mb-6">
               Exceptional
@@ -53,8 +53,7 @@ export default async function HomePage() {
             </h1>
             <p className="text-cream/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
               Health-tested, temperamentally sound puppies from carefully
-              selected working bloodlines. Raised with purpose in the heart of
-              Belgium.
+              selected working bloodlines. Raised with purpose in the United States.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -96,7 +95,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div>
-            <div className="text-gold font-serif text-3xl mb-1">Belgium</div>
+            <div className="text-gold font-serif text-3xl mb-1">USA</div>
             <div className="text-cream/70 text-sm tracking-wide">
               Raised & Bred
             </div>
@@ -170,7 +169,7 @@ export default async function HomePage() {
               parents with verified health clearances.
             </p>
             <p className="text-cream/80 leading-relaxed mb-8">
-              Located in Belgium, the historic home of the breed, we maintain
+              Located in the United States, we maintain
               close ties to working lines while prioritizing family suitability
               and long-term soundness.
             </p>
@@ -221,7 +220,7 @@ export default async function HomePage() {
                 Hip & Elbow Scores
               </h3>
               <p className="text-charcoal/70 text-sm leading-relaxed">
-                Official FCI / national scheme evaluations. We only breed from
+               Official OFA / PennHIP / national scheme evaluations. We only breed from
                 dogs with acceptable scores.
               </p>
             </div>
