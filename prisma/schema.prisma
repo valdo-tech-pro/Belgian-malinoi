@@ -16,7 +16,7 @@ model Puppy {
   birthDate   DateTime
   color       String
   price       Int
-  currency    String   @default("EUR")
+  currency    String   @default("USA")
   status      String   @default("Available") // Available | Reserved | Sold
   litter      String?
   description String
