@@ -91,6 +91,9 @@ export default async function AdminDashboard() {
         <Link href="/admin/puppies" className="block p-4 bg-white border border-forest/10 hover:border-gold transition">
           Manage Puppies →
         </Link>
+        <Link href="/admin/puppies/new" className="block p-4 bg-gold/10 border border-gold/30 hover:border-gold transition text-forest font-medium">
+          + Add New Puppy →
+        </Link>
         <Link href="/admin/inquiries" className="block p-4 bg-white border border-forest/10 hover:border-gold transition">
           View Inquiries →
         </Link>
