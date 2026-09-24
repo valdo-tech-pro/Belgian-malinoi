@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_BE",
+    locale: "en_US",
     url: siteUrl,
     siteName,
     title: `${siteName} | Premium Belgian Malinois Puppies`,
