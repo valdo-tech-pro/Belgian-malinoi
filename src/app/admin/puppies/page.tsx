@@ -51,9 +51,9 @@ export default async function AdminPuppiesPage() {
                   </td>
                   <td className="py-3 pr-4">{p.sex}</td>
                   <td className="py-3 pr-4">{p.status}</td>
-                  <td className="py-3 pr-4">€{p.price}</td>
+                  <td className="py-3 pr-4">${p.price.toLocaleString("en-US")}</td>
                   <td className="py-3">
-                    {new Date(p.birthDate).toLocaleDateString()}
+                    {new Date(p.birthDate).toLocaleDateString("en-US")}
                   </td>
                 </tr>
               ))}
