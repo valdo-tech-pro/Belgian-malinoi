@@ -11,7 +11,7 @@ Full-stack kennel website built with **Next.js 15 + Prisma + Postgres**.
 - Public site: Home, Puppies, Puppy detail, About, Contact
 - Database-backed puppy listings with health certificates
 - Inquiry / Application / Reservation / Waiting List / Appointment / Review flows
-- Admin panel with real auth: bcrypt password hashing + JWT httpOnly cookie sessions
+- Admin panel with bcrypt password hashing + signed JWT httpOnly cookie sessions
 - No payment page — deposits and payment are handled off-platform, by design
 
 ---
@@ -112,10 +112,14 @@ prisma/
   seed.ts
 ```
 
-## Before you consider this launch-ready
+## Security hardening
 
 - [ ] Real admin email + a strong, unique password (not the seeded default)
-- [ ] `JWT_SECRET` set in Vercel — the code falls back to an insecure default if missing
+- [ ] `JWT_SECRET` is a random value of at least 32 characters and is set in Vercel
+- [ ] Production secrets are stored only in Vercel Environment Variables
+- [ ] Rotate the database password, JWT secret and admin password if any secret may have been exposed
+- [ ] Keep Next.js and React updated to patched security releases
+- [ ] Review GitHub/Vercel security alerts regularly
 - [ ] Real puppy data replacing the 4 seeded sample dogs
 - [ ] Real photos (image URLs) on each puppy record
 - [ ] Decide how deposits/payment actually get handled off-platform, and make sure that
