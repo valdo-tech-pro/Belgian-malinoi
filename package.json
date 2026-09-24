@@ -23,7 +23,7 @@
     "@vercel/blob": "2.8.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^26",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/bcryptjs": "^2.4.6",
