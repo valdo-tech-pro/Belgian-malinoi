@@ -3,13 +3,15 @@ import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 
-const jwtSecretEnv = process.env.JWT_SECRET;
-if (!jwtSecretEnv || jwtSecretEnv.length < 32) {
-  throw new Error(
-    "JWT_SECRET must be defined and at least 32 characters long.",
-  );
+function getJwtSecret() {
+  const jwtSecretEnv = process.env.JWT_SECRET;
+  if (!jwtSecretEnv || jwtSecretEnv.length < 32) {
+    throw new Error(
+      "JWT_SECRET must be defined and at least 32 characters long.",
+    );
+  }
+  return new TextEncoder().encode(jwtSecretEnv);
 }
-const JWT_SECRET = new TextEncoder().encode(jwtSecretEnv);
 
 const COOKIE_NAME = "malinois_admin_session";
 const JWT_ISSUER = "belgian-malinois-admin";
@@ -30,7 +32,7 @@ export async function createSession(adminId: string, email: string) {
     .setIssuer(JWT_ISSUER)
     .setAudience(JWT_AUDIENCE)
     .setExpirationTime("24h")
-    .sign(JWT_SECRET);
+    .sign(getJwtSecret());
 
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, token, {
@@ -48,7 +50,7 @@ export async function getSession() {
   if (!token) return null;
 
   try {
-    const { payload } = await jwtVerify(token, JWT_SECRET, {
+    const { payload } = await jwtVerify(token, getJwtSecret(), {
       algorithms: ["HS256"],
       issuer: JWT_ISSUER,
       audience: JWT_AUDIENCE,
