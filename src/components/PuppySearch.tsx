@@ -70,14 +70,14 @@ export function PuppySearch({ puppies }: { puppies: Puppy[] }) {
         <div className="flex gap-2">
           <input
             type="number"
-            placeholder="Min €"
+            placeholder="Min $"
             value={minPrice}
             onChange={(e) => setMinPrice(e.target.value)}
             className="w-full px-3 py-2 border border-forest/20 focus:outline-none focus:border-gold"
           />
           <input
             type="number"
-            placeholder="Max €"
+            placeholder="Max $"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
             className="w-full px-3 py-2 border border-forest/20 focus:outline-none focus:border-gold"
