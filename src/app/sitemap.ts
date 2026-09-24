@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://belgianmalinoisspecialbreed.be";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://belgian-malinoi.vercel.app";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
