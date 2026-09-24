@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { LiveChat } from "@/components/LiveChat";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://belgianmalinoisspecialbreed.be";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://belgian-malinoi.vercel.app";
 const siteName = "Belgian Malinois Special Breed";
 
 export const metadata: Metadata = {
