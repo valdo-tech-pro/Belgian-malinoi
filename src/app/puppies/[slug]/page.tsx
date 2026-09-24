@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma";
 export const dynamic = "force-dynamic";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://belgianmalinoisspecialbreed.be";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://belgian-malinoi.vercel.app";
 
 function formatPrice(price: number) {
   return new Intl.NumberFormat("en-US", {
