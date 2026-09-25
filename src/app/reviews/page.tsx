@@ -50,44 +50,80 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <section className="pt-32 pb-16 bg-forest text-cream">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-gold tracking-[0.25em] uppercase text-sm mb-3">Testimonials</p>
-          <h1 className="font-serif text-5xl md:text-6xl">Reviews</h1>
+      <section className="relative overflow-hidden pt-32 pb-20 bg-forest text-cream">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute right-0 top-0 w-1/2 h-full border-l border-gold/20" />
+          <div className="absolute right-16 top-16 w-64 h-64 rounded-full border border-gold/15" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="h-px w-12 bg-gold" />
+            <p className="text-gold tracking-[0.3em] uppercase text-xs">Client Stories</p>
+          </div>
+          <h1 className="font-serif text-5xl md:text-7xl leading-[0.95]">
+            Life with a
+            <br />
+            <span className="text-gold">Malinois.</span>
+          </h1>
+          <p className="mt-6 text-cream/60 max-w-2xl text-base md:text-lg leading-relaxed">
+            Experiences shared by families and owners who have welcomed a
+            Belgian Malinois into their lives.
+          </p>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-20 md:py-24 bg-cream">
+        <div className="max-w-6xl mx-auto px-6">
           {reviews.length === 0 ? (
             <p className="text-charcoal/60 text-center mb-12">
               No published reviews yet. Be the first to share your experience.
             </p>
           ) : (
-            <div className="space-y-8 mb-16">
+            <div className="grid md:grid-cols-2 gap-px bg-forest/10 mb-20 border border-forest/10">
               {reviews.map((r) => (
-                <div key={r.id} className="bg-white border border-forest/10 p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    {"★".repeat(r.rating)}
-                    <span className="text-charcoal/40 text-sm">{"★".repeat(5 - r.rating)}</span>
+                <article key={r.id} className="bg-white p-8 md:p-10">
+                  <div className="flex items-center justify-between gap-4 mb-8">
+                    <div className="text-gold text-xs tracking-[0.12em]" aria-label={`${r.rating} out of 5 stars`}>
+                      {"★".repeat(Math.max(0, Math.min(5, r.rating)))}
+                    </div>
+                    <span className="text-[9px] uppercase tracking-[0.18em] text-charcoal/30">
+                      Client Story
+                    </span>
                   </div>
-                  {r.title && <h3 className="font-serif text-xl text-forest mb-1">{r.title}</h3>}
-                  <p className="text-charcoal/80 leading-relaxed mb-3">{r.content}</p>
-                  <p className="text-sm text-charcoal/50">
-                    — {r.name}
-                    {r.location ? `, ${r.location}` : ""}
+                  {r.title && (
+                    <h2 className="font-serif text-2xl md:text-3xl text-forest mb-5">
+                      {r.title}
+                    </h2>
+                  )}
+                  <p className="text-charcoal/70 leading-relaxed text-base mb-8">
+                    “{r.content}”
                   </p>
-                </div>
+                  <div className="pt-5 border-t border-forest/10 text-[9px] uppercase tracking-[0.2em] text-charcoal/40">
+                    <span className="text-forest">{r.name}</span>
+                    {r.location ? ` · ${r.location}` : ""}
+                  </div>
+                </article>
               ))}
             </div>
           )}
 
-          <div className="border-t border-forest/10 pt-12">
-            <h2 className="font-serif text-2xl text-forest mb-6">Leave a Review</h2>
+          <div className="max-w-4xl mx-auto border-t border-forest/15 pt-14">
+            <div className="mb-8">
+              <p className="text-gold text-[9px] uppercase tracking-[0.25em] mb-3">
+                Your Experience
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl text-forest mb-3">
+                Share your story
+              </h2>
+              <p className="text-charcoal/55 text-sm leading-relaxed max-w-xl">
+                Tell us about your experience. Submitted reviews are reviewed
+                before publication.
+              </p>
+            </div>
             {status === "success" ? (
               <p className="text-emerald-700">Thank you! Your review will appear after approval.</p>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 bg-white border border-forest/10 p-6 md:p-8">
                 <div className="grid md:grid-cols-2 gap-4">
                   <input name="name" required placeholder="Your name *" className="px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold" />
                   <input name="location" placeholder="Location (optional)" className="px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold" />
@@ -102,7 +138,7 @@ export default function ReviewsPage() {
                 </select>
                 <input name="title" placeholder="Title (optional)" className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold" />
                 <textarea name="content" required rows={4} placeholder="Your experience *" className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold" />
-                <button type="submit" disabled={status === "loading"} className="px-8 py-3 bg-gold text-forest font-medium hover:bg-gold/90 disabled:opacity-60">
+                <button type="submit" disabled={status === "loading"} className="px-8 py-4 bg-gold text-forest text-sm uppercase tracking-[0.16em] hover:bg-forest hover:text-cream transition duration-300 disabled:opacity-60">
                   {status === "loading" ? "Sending..." : "Submit Review"}
                 </button>
                 {status === "error" && <p className="text-red-600 text-sm">Failed to submit.</p>}
