@@ -89,30 +89,32 @@ export default async function HomePage() {
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-forest border-y border-gold/20 py-8">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-gold font-serif text-3xl mb-1">100%</div>
-            <div className="text-cream/70 text-sm tracking-wide">
-              Health Tested
+      <section className="bg-forest border-y border-gold/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gold/15">
+            <div className="py-7 px-5 text-center">
+              <div className="text-gold font-serif text-2xl mb-1">Health</div>
+              <div className="text-cream/55 text-[10px] uppercase tracking-[0.18em]">
+                Records Available
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-gold font-serif text-3xl mb-1">HD/ED</div>
-            <div className="text-cream/70 text-sm tracking-wide">
-              Official Scores
+            <div className="py-7 px-5 text-center">
+              <div className="text-gold font-serif text-2xl mb-1">HD / ED</div>
+              <div className="text-cream/55 text-[10px] uppercase tracking-[0.18em]">
+                Evaluation Records
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-gold font-serif text-3xl mb-1">DNA</div>
-            <div className="text-cream/70 text-sm tracking-wide">
-              Panel Screened
+            <div className="py-7 px-5 text-center">
+              <div className="text-gold font-serif text-2xl mb-1">DNA</div>
+              <div className="text-cream/55 text-[10px] uppercase tracking-[0.18em]">
+                Screening Information
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-gold font-serif text-3xl mb-1">USA</div>
-            <div className="text-cream/70 text-sm tracking-wide">
-              Raised & Bred
+            <div className="py-7 px-5 text-center">
+              <div className="text-gold font-serif text-2xl mb-1">USA</div>
+              <div className="text-cream/55 text-[10px] uppercase tracking-[0.18em]">
+                Raised in the United States
+              </div>
             </div>
           </div>
         </div>
@@ -339,21 +341,60 @@ export default async function HomePage() {
           </div>
         </div>
       </section>\n\n      {/* CTA */}
-      <section className="py-24 bg-charcoal text-cream">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6">
-            Ready to Welcome a Malinois?
+      <section className="relative overflow-hidden bg-charcoal text-cream py-28 md:py-32">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src="/malinois.jpg"
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-charcoal/80" />
+        </div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gold/60" />
+
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <div className="flex items-center justify-center gap-4 mb-7">
+            <span className="h-px w-10 bg-gold" />
+            <p className="text-gold text-[10px] uppercase tracking-[0.3em]">
+              Begin the Conversation
+            </p>
+            <span className="h-px w-10 bg-gold" />
+          </div>
+
+          <h2 className="font-serif text-5xl md:text-6xl leading-[1.02] mb-6">
+            The right Malinois
+            <br />
+            <span className="text-gold">starts with the right match.</span>
           </h2>
-          <p className="text-cream/70 text-lg mb-10">
-            Every inquiry is answered personally. Tell us about your experience
-            and plans.
+
+          <p className="text-cream/65 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+            Tell us about your experience, lifestyle and goals. We take the
+            time to understand what you are looking for before discussing
+            available puppies and placement.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-4 bg-gold text-forest font-medium tracking-wide hover:bg-gold/90 transition"
-          >
-            Start Your Inquiry
-          </Link>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="min-w-[190px] px-8 py-4 bg-gold text-forest text-sm uppercase tracking-[0.16em] hover:bg-cream transition duration-300"
+            >
+              Start Your Inquiry
+            </Link>
+            <Link
+              href="/puppies"
+              className="min-w-[190px] px-8 py-4 border border-cream/30 text-cream text-sm uppercase tracking-[0.16em] hover:border-gold hover:text-gold transition duration-300"
+            >
+              View Puppies
+            </Link>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[9px] uppercase tracking-[0.22em] text-cream/35">
+            <span>Thoughtful Placement</span>
+            <span className="text-gold/50">•</span>
+            <span>Documented Information</span>
+            <span className="text-gold/50">•</span>
+            <span>Personal Inquiry</span>
+          </div>
         </div>
       </section>
     </>
