@@ -118,7 +118,7 @@ export default async function PuppyDetailPage({
   };
 
   return (
-    <section className="pt-28 pb-20">
+    <section className="pt-28 pb-24 bg-cream min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -126,19 +126,20 @@ export default async function PuppyDetailPage({
       <div className="max-w-7xl mx-auto px-6">
         <Link
           href="/puppies"
-          className="inline-flex items-center text-sm text-charcoal/60 hover:text-gold mb-8 transition"
+          className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-charcoal/50 hover:text-gold mb-10 transition"
         >
-          ← Back to all puppies
+          <span>←</span>
+          Back to all puppies
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 lg:gap-16 items-start">
           <div>
-            <div className="aspect-[4/3] bg-forest/5 overflow-hidden mb-4">
+            <div className="relative aspect-[4/3] bg-forest overflow-hidden mb-4 shadow-[0_20px_55px_rgba(24,55,43,0.12)]">
               {images[0] && (
                 <img
                   src={images[0]}
                   alt={puppy.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.015]"
                 />
               )}
             </div>
@@ -191,16 +192,27 @@ export default async function PuppyDetailPage({
               · {ageFromBirth(puppy.birthDate)}
             </p>
 
-            <div className="text-3xl font-serif text-forest mb-8">
-              {formatPrice(puppy.price)}
+            <div className="flex items-end justify-between gap-6 border-y border-forest/10 py-6 mb-8">
+              <div>
+                <p className="text-[9px] uppercase tracking-[0.2em] text-charcoal/40 mb-2">
+                  Placement
+                </p>
+                <div className="text-3xl font-serif text-forest">
+                  {formatPrice(puppy.price)}
+                </div>
+              </div>
+              <div className="text-right text-[9px] uppercase tracking-[0.16em] text-charcoal/40">
+                <div>{puppy.sex}</div>
+                <div className="mt-1">{puppy.color}</div>
+              </div>
             </div>
 
             <p className="text-charcoal/80 leading-relaxed mb-8">
               {puppy.description}
             </p>
 
-            <div className="bg-cream border border-forest/10 p-6 mb-8">
-              <h3 className="font-serif text-lg text-forest mb-4">Parents</h3>
+            <div className="bg-white border border-forest/10 p-6 mb-8 shadow-sm">
+              <div className="flex items-center justify-between mb-4"><h3 className="font-serif text-xl text-forest">Parents</h3><span className="text-[9px] uppercase tracking-[0.18em] text-charcoal/35">Pedigree</span></div>
               <p className="text-sm mb-2">
                 <span className="text-charcoal/60">Sire:</span> {puppy.sire}
               </p>
@@ -214,7 +226,7 @@ export default async function PuppyDetailPage({
                 Health Clearances
               </h3>
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="bg-white p-4 border border-forest/10">
+                <div className="bg-white p-4 border border-forest/10 shadow-sm">
                   <div className="text-charcoal/50 text-xs uppercase tracking-wide">
                     Sire HD / ED
                   </div>
@@ -276,7 +288,7 @@ export default async function PuppyDetailPage({
               <div className="space-y-4">
                 <Link
                   href={`/contact?puppy=${puppy.name}`}
-                  className="block w-full text-center px-8 py-4 bg-gold text-forest font-medium tracking-wide hover:bg-gold/90 transition"
+                  className="block w-full text-center px-8 py-4 bg-gold text-forest text-sm uppercase tracking-[0.16em] hover:bg-forest hover:text-cream transition duration-300"
                 >
                   Send Inquiry about {puppy.name}
                 </Link>
