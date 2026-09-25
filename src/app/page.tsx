@@ -17,8 +17,21 @@ async function getFeaturedPuppies() {
   }
 }
 
+async function getFeaturedReviews() {
+  try {
+    return await prisma.review.findMany({
+      where: { approved: true },
+      take: 3,
+      orderBy: { createdAt: "desc" },
+    });
+  } catch {
+    return [];
+  }
+}
+
 export default async function HomePage() {
   const featured = await getFeaturedPuppies();
+  const reviews = await getFeaturedReviews();
 
   return (
     <>
@@ -244,6 +257,88 @@ export default async function HomePage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Stories */}
+      <section className="relative overflow-hidden bg-forest text-cream py-28 md:py-32">
+        <div className="absolute top-0 right-0 w-72 h-72 border-l border-b border-gold/10" />
+        <div className="absolute bottom-0 left-0 w-56 h-56 border-r border-t border-gold/10" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <span className="h-px w-12 bg-gold" />
+                <p className="text-gold tracking-[0.3em] uppercase text-xs">
+                  Client Stories
+                </p>
+              </div>
+              <h2 className="font-serif text-5xl md:text-6xl leading-[1.02]">
+                Life with a
+                <br />
+                <span className="text-gold">Malinois.</span>
+              </h2>
+            </div>
+            <Link
+              href="/reviews"
+              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-cream/70 hover:text-gold transition-colors"
+            >
+              <span className="border-b border-gold/50 pb-2">Read all stories</span>
+              <span>→</span>
+            </Link>
+          </div>
+
+          {reviews.length > 0 ? (
+            <div className="grid md:grid-cols-3 border-t border-gold/15">
+              {reviews.map((review, index) => (
+                <article
+                  key={review.id}
+                  className={`py-10 md:px-8 first:md:pl-0 last:md:pr-0 ${index > 0 ? "md:border-l border-gold/15" : ""}`}
+                >
+                  <div className="flex items-center gap-1 text-gold text-xs mb-7" aria-label={`${review.rating} out of 5 stars`}>
+                    {"★".repeat(Math.max(0, Math.min(5, review.rating)))}
+                  </div>
+                  {review.title && (
+                    <h3 className="font-serif text-2xl text-cream mb-4">
+                      {review.title}
+                    </h3>
+                  )}
+                  <p className="text-cream/65 leading-relaxed text-sm md:text-base mb-7">
+                    “{review.content}”
+                  </p>
+                  <div className="text-[9px] uppercase tracking-[0.2em] text-cream/40">
+                    <span className="text-gold/80">{review.name}</span>
+                    {review.location ? ` · ${review.location}` : ""}
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="border-t border-gold/15 pt-10 max-w-2xl">
+              <p className="font-serif text-2xl text-cream/85 leading-relaxed">
+                Our client stories will appear here as approved families share
+                their experiences.
+              </p>
+              <p className="mt-4 text-sm text-cream/45 leading-relaxed">
+                We prefer genuine experiences over invented testimonials. Every
+                published story is submitted by a client and reviewed before it
+                appears on the site.
+              </p>
+            </div>
+          )}
+
+          <div className="mt-14 pt-7 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="text-[9px] uppercase tracking-[0.2em] text-cream/35">
+              Real experiences · Thoughtful placement · Shared by clients
+            </p>
+            <Link
+              href="/reviews"
+              className="text-gold text-xs uppercase tracking-[0.18em] hover:text-cream transition-colors"
+            >
+              Share your experience →
+            </Link>
           </div>
         </div>
       </section>
