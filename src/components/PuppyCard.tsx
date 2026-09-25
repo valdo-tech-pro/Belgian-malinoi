@@ -73,8 +73,8 @@ export function PuppyCard({
   }, [slug]);
 
   return (
-    <article className="group relative bg-white border border-forest/10 overflow-hidden hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(24,55,43,0.14)] transition-all duration-500">
-      <div className="relative aspect-[4/5] overflow-hidden bg-forest">
+    <article className="group relative bg-white border border-forest/10 overflow-hidden hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(24,55,43,0.16)] transition-all duration-500">
+      <div className="relative aspect-[4/5] overflow-hidden bg-forest ring-1 ring-inset ring-forest/10">
         {image ? (
           <img
             src={image}
@@ -87,13 +87,13 @@ export function PuppyCard({
           </div>
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-forest/85 via-transparent to-forest/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/5 to-transparent" />
 
-        <div className="absolute top-4 left-4 z-10">
+        <div className="absolute top-5 left-5 z-10 px-3 py-1.5 border border-cream/25 bg-forest/25 backdrop-blur-sm">
           {statusBadge(status)}
         </div>
 
-        <div className="absolute top-4 right-4 z-10 flex gap-2">
+        <div className="absolute top-5 right-5 z-10 flex gap-2">
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -155,7 +155,7 @@ export function PuppyCard({
         </Link>
       </div>
 
-      <div className="p-6 bg-white">
+      <div className="p-6 md:p-7 bg-white">
         <div className="grid grid-cols-3 divide-x divide-forest/10 mb-6">
           <div className="pr-3">
             <p className="text-[9px] uppercase tracking-[0.18em] text-charcoal/40 mb-1">
