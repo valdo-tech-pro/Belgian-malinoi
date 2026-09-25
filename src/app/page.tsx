@@ -246,54 +246,99 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Health */}
-      <section className="py-24 bg-cream">
+      {/* Health & Transparency */}
+      <section className="relative overflow-hidden bg-cream py-28 md:py-32">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gold/40" />
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-gold tracking-[0.25em] uppercase text-sm mb-3">
-              Transparency
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-forest">
-              Health Certificates
+          <div className="max-w-3xl mb-16 md:mb-20">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-12 bg-gold" />
+              <p className="text-gold tracking-[0.3em] uppercase text-xs">
+                Health & Transparency
+              </p>
+            </div>
+            <h2 className="font-serif text-5xl md:text-6xl text-forest leading-[1.02] mb-6">
+              Standards you can
+              <br />
+              <span className="text-gold">see for yourself.</span>
             </h2>
-            <p className="mt-4 text-charcoal/70 max-w-2xl mx-auto">
-              Every puppy’s parents carry official HD/ED scores and DNA panel
-              results. Certificates are displayed on each individual puppy page.
+            <p className="text-charcoal/65 text-base md:text-lg leading-relaxed max-w-2xl">
+              We believe responsible placement begins with clear information.
+              Health records and supporting documentation are presented with each
+              puppy so prospective owners can review the information available.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 border border-forest/10 shadow-sm">
-              <h3 className="font-serif text-xl text-forest mb-3">
-                Hip & Elbow Scores
+
+          <div className="grid md:grid-cols-3 border-t border-forest/15">
+            <div className="py-10 md:pr-10 md:border-r border-forest/15">
+              <div className="flex items-center justify-between mb-8">
+                <span className="font-serif text-4xl text-gold">01</span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-charcoal/40">
+                  Evaluation
+                </span>
+              </div>
+              <h3 className="font-serif text-2xl text-forest mb-4">
+                Hip & Elbow
               </h3>
-              <p className="text-charcoal/70 text-sm leading-relaxed">
-               Official OFA / PennHIP / national scheme evaluations. We only breed from
-                dogs with acceptable scores.
+              <p className="text-charcoal/65 text-sm leading-relaxed">
+                Official hip and elbow evaluation records can be provided for
+                breeding dogs, with the applicable registry or evaluation scheme
+                identified in the documentation.
               </p>
             </div>
-            <div className="bg-white p-8 border border-forest/10 shadow-sm">
-              <h3 className="font-serif text-xl text-forest mb-3">
-                DNA Health Panel
+
+            <div className="py-10 md:px-10 md:border-r border-forest/15">
+              <div className="flex items-center justify-between mb-8">
+                <span className="font-serif text-4xl text-gold">02</span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-charcoal/40">
+                  Genetics
+                </span>
+              </div>
+              <h3 className="font-serif text-2xl text-forest mb-4">
+                DNA Screening
               </h3>
-              <p className="text-charcoal/70 text-sm leading-relaxed">
-                Comprehensive genetic screening for breed-relevant conditions
-                before any mating takes place.
+              <p className="text-charcoal/65 text-sm leading-relaxed">
+                Genetic screening information is included where testing has
+                been completed, helping families understand the records behind
+                a planned pairing.
               </p>
             </div>
-            <div className="bg-white p-8 border border-forest/10 shadow-sm">
-              <h3 className="font-serif text-xl text-forest mb-3">
-                Full Transparency
+
+            <div className="py-10 md:pl-10">
+              <div className="flex items-center justify-between mb-8">
+                <span className="font-serif text-4xl text-gold">03</span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-charcoal/40">
+                  Records
+                </span>
+              </div>
+              <h3 className="font-serif text-2xl text-forest mb-4">
+                Open Documentation
               </h3>
-              <p className="text-charcoal/70 text-sm leading-relaxed">
-                Certificates are published on each puppy’s page. You see exactly
-                what we see.
+              <p className="text-charcoal/65 text-sm leading-relaxed">
+                Supporting certificates and available health documentation are
+                presented on individual puppy profiles where applicable.
               </p>
             </div>
+          </div>
+
+          <div className="mt-14 pt-7 border-t border-forest/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-charcoal/45">
+              Responsible breeding · Documented information · Thoughtful placement
+            </p>
+            <Link
+              href="/puppies"
+              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-forest group"
+            >
+              <span className="border-b border-gold pb-2 group-hover:text-gold transition-colors">
+                Review Available Puppies
+              </span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
           </div>
         </div>
-      </section>
-
-      {/* CTA */}
+      </section>\n\n      {/* CTA */}
       <section className="py-24 bg-charcoal text-cream">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="font-serif text-4xl md:text-5xl mb-6">
