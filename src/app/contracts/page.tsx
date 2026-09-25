@@ -57,6 +57,7 @@ export default function ContractsPage() {
 
           <p className="text-sm text-charcoal/50 mt-8">
             Questions about a document or the placement process? <Link href="/contact" className="text-gold hover:underline">Contact us</Link>.
+          </p>
         </div>
       </section>
     </>
