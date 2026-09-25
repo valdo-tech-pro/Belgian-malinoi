@@ -166,49 +166,81 @@ export default async function HomePage() {
       </section>
 
       {/* About Preview */}
-      <section className="py-24 bg-forest text-cream">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-gold tracking-[0.25em] uppercase text-sm mb-3">
-              Our Kennel
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl mb-6 leading-tight">
-              Raised with
-              <br />
-              Intention
-            </h2>
-            <p className="text-cream/80 leading-relaxed mb-6">
-              At Belgian Malinois Special Breed we focus exclusively on producing
-              dogs of exceptional drive, structure and stable temperament. Every
-              puppy is raised in a carefully enriched environment and comes from
-              parents with verified health clearances.
-            </p>
-            <p className="text-cream/80 leading-relaxed mb-8">
-              Located in the United States, we maintain
-              close ties to working lines while prioritizing family suitability
-              and long-term soundness.
-            </p>
-            <Link
-              href="/about"
-              className="text-gold border-b border-gold pb-1 hover:text-cream hover:border-cream transition"
-            >
-              Discover Our Story →
-            </Link>
-          </div>
-          <div className="relative">
-            <div className="aspect-[4/3] bg-sage/50 rounded-sm overflow-hidden">
-              <div
-                className="w-full h-full bg-cover bg-center opacity-80"
-                style={{
-                  backgroundImage:
-                    "url('/malinois.jpg')",
-                }}
-              />
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-gold text-forest p-6 max-w-xs">
-              <p className="font-serif text-lg">
-                “Temperament first. Structure second. Everything else follows.”
+      <section className="relative overflow-hidden bg-forest text-cream py-28 md:py-32">
+        <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block bg-gold/5" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 lg:gap-24 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="h-px w-12 bg-gold" />
+                <p className="text-gold tracking-[0.3em] uppercase text-xs">
+                  The Kennel Philosophy
+                </p>
+              </div>
+
+              <h2 className="font-serif text-5xl md:text-6xl leading-[1.02] mb-8">
+                Raised with
+                <br />
+                <span className="text-gold">Intention.</span>
+              </h2>
+
+              <p className="text-cream/75 leading-relaxed text-base md:text-lg max-w-xl mb-6">
+                We focus on Belgian Malinois bred with purpose, with careful
+                attention to working ability, structure and stable temperament.
+                Each puppy is raised in an enriched environment with thoughtful
+                early development.
               </p>
+
+              <p className="text-cream/60 leading-relaxed max-w-xl mb-9">
+                Our approach is centered on responsible selection, documented
+                health information and helping each puppy find the right home
+                and purpose.
+              </p>
+
+              <div className="flex items-center gap-8 mb-10 text-[10px] uppercase tracking-[0.22em] text-cream/50">
+                <span>Purpose</span>
+                <span className="h-4 w-px bg-gold/30" />
+                <span>Structure</span>
+                <span className="h-4 w-px bg-gold/30" />
+                <span>Temperament</span>
+              </div>
+
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-4 text-gold text-xs uppercase tracking-[0.2em] group"
+              >
+                <span className="border-b border-gold pb-2 group-hover:text-cream group-hover:border-cream transition-colors">
+                  Discover Our Story
+                </span>
+                <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
+
+            <div className="order-1 lg:order-2 relative">
+              <div className="relative aspect-[4/5] max-w-xl ml-auto overflow-hidden">
+                <img
+                  src="/malinois.jpg"
+                  alt="Belgian Malinois at the kennel"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/50 via-transparent to-transparent" />
+                <div className="absolute top-6 right-6 border border-gold/50 px-4 py-3 bg-forest/40 backdrop-blur-sm">
+                  <p className="text-gold text-[9px] uppercase tracking-[0.22em]">
+                    Est. · United States
+                  </p>
+                </div>
+              </div>
+
+              <div className="absolute -bottom-6 -left-2 md:left-0 lg:-left-10 bg-gold text-forest px-7 py-6 max-w-[280px] shadow-xl">
+                <p className="text-[9px] uppercase tracking-[0.2em] mb-2 opacity-70">
+                  Our Standard
+                </p>
+                <p className="font-serif text-xl leading-snug">
+                  Purpose in every pairing. Intention in every puppy.
+                </p>
+              </div>
             </div>
           </div>
         </div>
