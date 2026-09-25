@@ -1,30 +1,20 @@
 export function JsonLd() {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://belgianmalinoisspecialbreed.be";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://belgian-malinoi.vercel.app";
 
   const organization = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
     name: "Belgian Malinois Special Breed",
     description:
-      "Premium kennel specializing in health-tested working-line Belgian Malinois puppies in the United States.",
+      "Belgian Malinois puppies from working lines in the United States, with documented information about breeding standards, screening, and placement.",
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/og-image.jpg`,
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "US",
-      addressLocality: "United States",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      addressCountry: "US",
-    },
     areaServed: ["US", "United States"],
     priceRange: "$$",
     currenciesAccepted: "USD",
-    paymentAccepted: "Bank Transfer, Cash",
     sameAs: [],
   };
 
@@ -35,7 +25,7 @@ export function JsonLd() {
     url: siteUrl,
     name: "Belgian Malinois Special Breed",
     description:
-      "Premium health-tested Belgian Malinois puppies from working lines in the United States.",
+      "Belgian Malinois puppies from working lines in the United States, with documented information about health, screening, temperament, and placement.",
     publisher: {
       "@id": `${siteUrl}/#organization`,
     },
