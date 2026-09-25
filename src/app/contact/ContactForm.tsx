@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
+const inputClass =
+  "w-full px-4 py-3.5 border border-forest/15 bg-white text-charcoal placeholder:text-charcoal/35 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition";
+const labelClass = "block text-[10px] uppercase tracking-[0.18em] text-forest/65 mb-2";
+
 export function ContactForm() {
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -16,7 +20,6 @@ export function ContactForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-
     const form = e.currentTarget;
     const formData = new FormData(form);
 
@@ -35,7 +38,6 @@ export function ContactForm() {
           message: formData.get("message"),
         }),
       });
-
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
     } catch {
@@ -45,86 +47,48 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="text-center py-16">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-emerald-100 flex items-center justify-center">
-          <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+      <div className="py-12 md:py-20 text-center">
+        <div className="w-16 h-16 mx-auto mb-7 border border-gold flex items-center justify-center">
+          <svg className="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m5 12 4 4L19 7" />
           </svg>
         </div>
-        <h2 className="font-serif text-3xl text-forest mb-4">Thank you</h2>
-        <p className="text-charcoal/70 mb-6">
-          Your inquiry has been received. We will reply personally within 24–48 hours.
+        <p className="text-gold text-[10px] uppercase tracking-[0.3em] mb-4">Inquiry Received</p>
+        <h2 className="font-serif text-4xl md:text-5xl text-forest mb-5">Thank you.</h2>
+        <p className="text-charcoal/65 leading-relaxed max-w-md mx-auto">
+          Your inquiry has been received. We&apos;ll review the information you shared and follow up with you regarding your inquiry.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium text-forest mb-2">Full Name *</label>
-          <input
-            type="text"
-            name="name"
-            required
-            className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-            placeholder="Your name"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-forest mb-2">Email *</label>
-          <input
-            type="email"
-            name="email"
-            required
-            className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-            placeholder="you@example.com"
-          />
-        </div>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-10 pb-7 border-b border-forest/10">
+        <p className="text-[9px] uppercase tracking-[0.2em] text-gold mb-2">01 · Your details</p>
+        <h2 className="font-serif text-2xl text-forest">Tell us who you are.</h2>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium text-forest mb-2">Phone</label>
-          <input
-            type="tel"
-            name="phone"
-            className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-            placeholder="+1 ..."
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-forest mb-2">Country</label>
-          <input
-            type="text"
-            name="country"
-            className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-            placeholder="USA"
-          />
-        </div>
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
+        <div><label className={labelClass}>Full Name *</label><input type="text" name="name" required className={inputClass} placeholder="Your name" /></div>
+        <div><label className={labelClass}>Email *</label><input type="email" name="email" required className={inputClass} placeholder="you@example.com" /></div>
+        <div><label className={labelClass}>Phone</label><input type="tel" name="phone" className={inputClass} placeholder="+1 ..." /></div>
+        <div><label className={labelClass}>Country</label><input type="text" name="country" className={inputClass} placeholder="United States" /></div>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-forest mb-2">Puppy of Interest</label>
-        <input
-          type="text"
-          name="puppy"
-          value={puppyInterest}
-          onChange={(e) => setPuppyInterest(e.target.value)}
-          className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-          placeholder="e.g. Atlas or Future litter"
-        />
+      <div className="mb-12">
+        <label className={labelClass}>Puppy of interest</label>
+        <input type="text" name="puppy" value={puppyInterest} onChange={(e) => setPuppyInterest(e.target.value)} className={inputClass} placeholder="Name or future litter" />
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-forest mb-2">
-          Experience with Belgian Malinois or working breeds
-        </label>
-        <select
-          name="experience"
-          className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-        >
+      <div className="mb-10 pb-7 border-b border-forest/10">
+        <p className="text-[9px] uppercase tracking-[0.2em] text-gold mb-2">02 · Your experience</p>
+        <h2 className="font-serif text-2xl text-forest">Tell us about your background.</h2>
+      </div>
+
+      <div className="mb-7">
+        <label className={labelClass}>Experience with Belgian Malinois or working breeds</label>
+        <select name="experience" className={inputClass}>
           <option value="">Please select</option>
           <option value="First time">First Malinois / first working breed</option>
           <option value="Previous owner">Previous Malinois or similar breed owner</option>
@@ -133,54 +97,37 @@ export function ContactForm() {
         </select>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-forest mb-2">Intended purpose</label>
-        <div className="grid grid-cols-2 gap-3">
-          <label className="flex items-center gap-2 text-sm">
-            <input type="checkbox" name="purpose" value="Family companion" className="accent-forest" />
-            Family companion
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input type="checkbox" name="purpose" value="Sport" className="accent-forest" />
-            Sport
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input type="checkbox" name="purpose" value="Protection" className="accent-forest" />
-            Protection
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input type="checkbox" name="purpose" value="Professional" className="accent-forest" />
-            Professional work
-          </label>
+      <div className="mb-12">
+        <label className={labelClass}>Intended purpose</label>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {["Family companion", "Sport", "Protection", "Professional work"].map((purpose) => (
+            <label key={purpose} className="flex items-center gap-3 border border-forest/10 px-4 py-3.5 text-sm text-charcoal/70 hover:border-gold/50 transition cursor-pointer">
+              <input type="checkbox" name="purpose" value={purpose} className="accent-forest w-4 h-4" />
+              {purpose}
+            </label>
+          ))}
         </div>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-forest mb-2">
-          Tell us about your home, lifestyle and experience *
-        </label>
-        <textarea
-          name="message"
-          required
-          rows={5}
-          className="w-full px-4 py-3 border border-forest/20 bg-white focus:outline-none focus:border-gold transition"
-          placeholder="Living situation, other animals, training plans, previous dogs..."
-        />
+      <div className="mb-10 pb-7 border-b border-forest/10">
+        <p className="text-[9px] uppercase tracking-[0.2em] text-gold mb-2">03 · Your plans</p>
+        <h2 className="font-serif text-2xl text-forest">Tell us what you are looking for.</h2>
       </div>
 
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="w-full py-4 bg-gold text-forest font-medium tracking-wide hover:bg-gold/90 transition disabled:opacity-60"
-      >
-        {status === "loading" ? "Sending..." : "Submit Inquiry"}
-      </button>
+      <div className="mb-8">
+        <label className={labelClass}>Home, lifestyle and experience *</label>
+        <textarea name="message" required rows={6} className={inputClass} placeholder="Tell us about your living situation, other animals, training plans, previous dogs, and anything else that may help us understand your plans." />
+      </div>
 
-      {status === "error" && (
-        <p className="text-red-600 text-sm text-center">
-          Something went wrong. Please try again or email us directly.
+      <div className="pt-7 border-t border-forest/10">
+        <p className="text-xs text-charcoal/45 leading-relaxed mb-6">
+          By submitting this inquiry, you&apos;re sharing information so we can review your request and communicate with you about puppy availability and placement.
         </p>
-      )}
+        <button type="submit" disabled={status === "loading"} className="w-full py-4 bg-gold text-forest text-sm uppercase tracking-[0.18em] hover:bg-forest hover:text-cream disabled:opacity-60 transition duration-300">
+          {status === "loading" ? "Sending Inquiry..." : "Send Inquiry"}
+        </button>
+        {status === "error" && <p className="text-red-600 text-sm text-center mt-4">Something went wrong. Please try again.</p>}
+      </div>
     </form>
   );
 }
