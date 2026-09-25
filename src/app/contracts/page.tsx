@@ -3,27 +3,24 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contracts & Documents",
-  description: "Download sample purchase contracts, health guarantees and deposit agreements from Belgian Malinois Special Breed.",
+  description: "Information about placement documents and agreements for Belgian Malinois Special Breed.",
 };
 
 const contracts = [
   {
     title: "Puppy Purchase Agreement",
-    description: "Standard sales contract outlining rights, responsibilities and health guarantee.",
+    description: "The final purchase agreement is provided directly during the placement process.",
     category: "Purchase",
-    fileUrl: "/contracts/purchase-agreement.pdf", // place real PDFs in public/contracts/
   },
   {
-    title: "Health Guarantee",
-    description: "Details of the health warranty covering hips, elbows and genetic conditions.",
-    category: "Health Guarantee",
-    fileUrl: "/contracts/health-guarantee.pdf",
+    title: "Health & Screening Records",
+    description: "Available records and screening information are discussed and provided when applicable to an individual puppy.",
+    category: "Records",
   },
   {
-    title: "Deposit / Reservation Agreement",
-    description: "Terms for reserving a puppy with a non-refundable deposit.",
-    category: "Deposit",
-    fileUrl: "/contracts/deposit-agreement.pdf",
+    title: "Deposit / Reservation Terms",
+    description: "Reservation and deposit terms are confirmed in writing before any payment is made.",
+    category: "Reservation",
   },
 ];
 
@@ -35,7 +32,7 @@ export default function ContractsPage() {
           <p className="text-gold tracking-[0.25em] uppercase text-sm mb-3">Documents</p>
           <h1 className="font-serif text-5xl md:text-6xl">Contracts & Agreements</h1>
           <p className="mt-4 text-cream/70 max-w-xl">
-            Transparent paperwork. Download sample contracts below. Final versions are signed at the time of reservation or pickup.
+            Transparent paperwork. Review placement documents and terms before making a reservation. Final documents are provided and signed as applicable to the individual placement.
           </p>
         </div>
       </section>
@@ -49,20 +46,17 @@ export default function ContractsPage() {
                 <h2 className="font-serif text-xl text-forest mt-1">{c.title}</h2>
                 <p className="text-sm text-charcoal/70 mt-1">{c.description}</p>
               </div>
-              <a
-                href={c.fileUrl}
+              <Link
+                href="/contact"
                 className="shrink-0 px-5 py-2 border border-forest text-forest hover:bg-forest hover:text-cream transition text-sm"
-                download
               >
-                Download PDF
-              </a>
+                Request Information
+              </Link>
             </div>
           ))}
 
           <p className="text-sm text-charcoal/50 mt-8">
-            Place your actual PDF files in the <code className="bg-forest/5 px-1">public/contracts/</code> folder and update the links above.
-            Need a custom contract? <Link href="/contact" className="text-gold hover:underline">Contact us</Link>.
-          </p>
+            Questions about a document or the placement process? <Link href="/contact" className="text-gold hover:underline">Contact us</Link>.
         </div>
       </section>
     </>
