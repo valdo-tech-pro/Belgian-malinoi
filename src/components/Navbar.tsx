@@ -26,6 +26,7 @@ function KennelCrest() {
 const primaryLinks = [
   { href: "/puppies", label: "Puppies" },
   { href: "/about", label: "Our Kennel" },
+  { href: "/health-standards", label: "Standards" },
   { href: "/reviews", label: "Stories" },
 ];
 
