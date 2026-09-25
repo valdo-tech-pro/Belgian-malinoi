@@ -219,7 +219,7 @@ export default async function HomePage() {
             </div>
 
             <div className="order-1 lg:order-2 relative">
-              <div className="relative aspect-[4/5] max-w-xl ml-auto overflow-hidden">
+              <div className="relative aspect-[4/3] lg:aspect-[4/5] max-w-xl ml-auto overflow-hidden">
                 <img
                   src="/malinois.jpg"
                   alt="Belgian Malinois at the kennel"
@@ -233,7 +233,7 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -left-2 md:left-0 lg:-left-10 bg-gold text-forest px-7 py-6 max-w-[280px] shadow-xl">
+              <div className="relative md:absolute -mt-8 ml-4 md:mt-0 md:-bottom-6 md:left-0 lg:-left-10 bg-gold text-forest px-7 py-6 max-w-[280px] shadow-xl">
                 <p className="text-[9px] uppercase tracking-[0.2em] mb-2 opacity-70">
                   Our Standard
                 </p>
