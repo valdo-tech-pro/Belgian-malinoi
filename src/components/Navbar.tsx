@@ -23,53 +23,82 @@ function KennelCrest() {
   );
 }
 
+const primaryLinks = [
+  { href: "/puppies", label: "Puppies" },
+  { href: "/about", label: "Our Kennel" },
+  { href: "/reviews", label: "Stories" },
+];
+
+const utilityLinks = [
+  { href: "/favorites", label: "Favorites" },
+  { href: "/compare", label: "Compare" },
+  { href: "/contracts", label: "Contracts" },
+];
+
 export function Navbar() {
   return (
-    <nav className="fixed w-full z-50 bg-forest/95 backdrop-blur-md border-b border-gold/20">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <KennelCrest />
-          <div>
-            <div className="font-serif text-cream text-lg tracking-wide">
-              Belgian Malinois
+    <nav className="fixed w-full z-50 bg-forest/90 backdrop-blur-xl border-b border-gold/15">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="min-h-[82px] flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 shrink-0 group">
+            <div className="transition-transform duration-500 group-hover:scale-[1.03]">
+              <KennelCrest />
             </div>
-            <div className="text-gold text-xs tracking-[0.22em] uppercase">
-              Heritage Kennel
+            <div>
+              <div className="font-serif text-cream text-[19px] tracking-[0.04em]">
+                Belgian Malinois
+              </div>
+              <div className="text-gold text-[10px] tracking-[0.28em] uppercase mt-0.5">
+                Heritage Kennel
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
 
-        <div className="hidden lg:flex items-center gap-6 text-sm tracking-wide">
-          <Link href="/" className="text-cream/80 hover:text-gold transition">
-            Home
-          </Link>
-          <Link href="/puppies" className="text-cream/80 hover:text-gold transition">
-            Puppies
-          </Link>
-          <Link href="/favorites" className="text-cream/80 hover:text-gold transition">
-            Favorites
-          </Link>
-          <Link href="/compare" className="text-cream/80 hover:text-gold transition">
-            Compare
-          </Link>
-          <Link href="/about" className="text-cream/80 hover:text-gold transition">
-            Our Kennel
-          </Link>
-          <Link href="/reviews" className="text-cream/80 hover:text-gold transition">
-            Reviews
-          </Link>
-          <Link href="/contracts" className="text-cream/80 hover:text-gold transition">
-            Contracts
-          </Link>
-          <Link href="/application" className="text-cream/80 hover:text-gold transition">
-            Apply
-          </Link>
-          <Link
-            href="/contact"
-            className="ml-2 px-5 py-2 bg-gold text-forest font-medium rounded-sm hover:bg-gold/90 transition"
-          >
-            Inquire
-          </Link>
+          <div className="hidden lg:flex items-center gap-1">
+            <Link
+              href="/"
+              className="px-4 py-2 text-[13px] uppercase tracking-[0.16em] text-cream/70 hover:text-gold transition-colors"
+            >
+              Home
+            </Link>
+
+            {primaryLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-[13px] uppercase tracking-[0.16em] text-cream/70 hover:text-gold transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <span className="mx-3 h-5 w-px bg-gold/20" aria-hidden="true" />
+
+            <Link
+              href="/application"
+              className="px-5 py-2 text-[13px] uppercase tracking-[0.16em] text-gold border border-gold/50 hover:bg-gold hover:text-forest transition-all duration-300"
+            >
+              Apply
+            </Link>
+            <Link
+              href="/contact"
+              className="ml-2 px-5 py-2 text-[13px] uppercase tracking-[0.16em] bg-gold text-forest hover:bg-gold/90 transition-all duration-300"
+            >
+              Inquire
+            </Link>
+          </div>
+        </div>
+
+        <div className="hidden lg:flex items-center justify-end gap-5 pb-2.5 -mt-1">
+          {utilityLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[10px] uppercase tracking-[0.2em] text-cream/40 hover:text-gold transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>
