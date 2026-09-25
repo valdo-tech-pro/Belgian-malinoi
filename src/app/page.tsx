@@ -22,52 +22,67 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero with video */}
-      <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-forest">
-          {/* Replace the src with your own hero video URL */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            poster="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=2000"
-          >
-            <source
-              src="https://cdn.coverr.co/videos/coverr-a-dog-running-on-the-beach-1080p.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 hero-gradient" />
+      {/* Hero */}
+      <section className="relative min-h-[760px] h-[92vh] flex items-center overflow-hidden bg-forest">
+        <div className="absolute inset-0">
+          <img
+            src="/malinois.jpg"
+            alt="Belgian Malinois"
+            className="w-full h-full object-cover object-center scale-[1.02]"
+          />
+          <div className="absolute inset-0 bg-forest/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/75 to-forest/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-transparent to-forest/20" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-6 pt-20">
-          <div className="max-w-2xl">
-            <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">
-              USA · Premium Working Lines
-            </p>
-            <h1 className="font-serif text-5xl md:text-7xl text-cream leading-tight mb-6">
-              Exceptional
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pt-24">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-12 bg-gold" />
+              <p className="text-gold tracking-[0.35em] uppercase text-xs md:text-sm">
+                Working Lines · United States
+              </p>
+            </div>
+
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl text-cream leading-[0.95] tracking-tight mb-7">
+              Belgian
               <br />
-              <span className="text-gold">Belgian Malinois</span>
+              <span className="text-gold">Malinois</span>
             </h1>
-            <p className="text-cream/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
-              Health-tested, temperamentally sound puppies from carefully
-              selected working bloodlines. Raised with purpose in the United States.
+
+            <p className="font-serif text-2xl md:text-3xl text-cream/90 leading-snug max-w-2xl mb-5">
+              Bred with purpose.
+              <br className="hidden md:block" />
+              Raised with intention.
             </p>
-            <div className="flex flex-wrap gap-4">
+
+            <p className="text-cream/75 text-base md:text-lg leading-relaxed max-w-xl mb-10">
+              Health-tested puppies from carefully selected working bloodlines,
+              raised in the United States with an emphasis on temperament,
+              structure and purposeful development.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/puppies"
-                className="px-8 py-4 bg-gold text-forest font-medium tracking-wide hover:bg-gold/90 transition"
+                className="px-8 py-4 bg-gold text-forest font-medium tracking-wide hover:bg-cream transition duration-300"
               >
-                View Available Puppies
+                Explore Available Puppies
               </Link>
               <Link
                 href="/about"
-                className="px-8 py-4 border border-cream/40 text-cream hover:border-gold hover:text-gold transition"
+                className="px-8 py-4 border border-cream/50 text-cream hover:border-gold hover:text-gold transition duration-300"
               >
-                Our Philosophy
+                Discover Our Kennel
               </Link>
+            </div>
+
+            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.2em] text-cream/60">
+              <span>Health Tested</span>
+              <span>•</span>
+              <span>Working Lines</span>
+              <span>•</span>
+              <span>Raised in the USA</span>
             </div>
           </div>
         </div>
