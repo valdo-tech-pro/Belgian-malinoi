@@ -8,5 +8,5 @@ export async function POST(req: NextRequest) {
 
   const { destroySession } = await import("@/lib/auth");
   await destroySession();
-  return NextResponse.json({ success: true });
+  return NextResponse.redirect(new URL("/admin/login", req.url));
 }
