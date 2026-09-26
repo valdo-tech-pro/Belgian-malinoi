@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { DeletePuppyButton } from "./DeletePuppyButton";
 
 export const dynamic = "force-dynamic";
 
@@ -36,6 +37,7 @@ export default async function AdminPuppiesPage() {
                 <th className="py-3 pr-4">Status</th>
                 <th className="py-3 pr-4">Price</th>
                 <th className="py-3">Birth</th>
+                <th className="py-3">Actions</th>
               </tr>
             </thead>
             <tbody>
