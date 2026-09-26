@@ -24,39 +24,32 @@ export default async function AdminPuppiesPage() {
       </div>
 
       {puppies.length === 0 ? (
-        <p className="text-charcoal/60">
-          No puppies yet. Run the seed script or add them via Prisma Studio.
-        </p>
+        <p className="text-charcoal/60">No puppies yet. Add a puppy from the admin dashboard.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-forest/20 text-left">
-                <th className="py-3 pr-4">Name</th>
-                <th className="py-3 pr-4">Sex</th>
-                <th className="py-3 pr-4">Status</th>
-                <th className="py-3 pr-4">Price</th>
-                <th className="py-3">Birth</th>
-                <th className="py-3">Actions</th>
-              </tr>
-            </thead>
+            <thead><tr className="border-b border-forest/20 text-left">
+              <th className="py-3 pr-4">Name</th>
+              <th className="py-3 pr-4">Sex</th>
+              <th className="py-3 pr-4">Status</th>
+              <th className="py-3 pr-4">Price</th>
+              <th className="py-3 pr-4">Birth</th>
+              <th className="py-3">Actions</th>
+            </tr></thead>
             <tbody>
               {puppies.map((p) => (
                 <tr key={p.id} className="border-b border-forest/10">
                   <td className="py-3 pr-4 font-medium text-forest">
-                    <Link
-                      href={`/puppies/${p.slug}`}
-                      className="hover:text-gold"
-                    >
-                      {p.name}
-                    </Link>
+                    <Link href={`/puppies/${p.slug}`} className="hover:text-gold">{p.name}</Link>
                   </td>
                   <td className="py-3 pr-4">{p.sex}</td>
                   <td className="py-3 pr-4">{p.status}</td>
                   <td className="py-3 pr-4">${p.price.toLocaleString("en-US")}</td>
-                  <td className="py-3">
-                    {new Date(p.birthDate).toLocaleDateString("en-US")}
-                  </td>
+                  <td className="py-3 pr-4">{new Date(p.birthDate).toLocaleDateString("en-US")}</td>
+                  <td className="py-3"><div className="flex items-center gap-4">
+                    <Link href={`/admin/puppies/${p.id}`} className="text-gold hover:underline">Edit</Link>
+                    <DeletePuppyButton id={p.id} name={p.name} />
+                  </div></td>
                 </tr>
               ))}
             </tbody>
@@ -64,11 +57,7 @@ export default async function AdminPuppiesPage() {
         </div>
       )}
 
-      <p className="mt-8 text-sm text-charcoal/50">
-        To add or edit puppies you can use{" "}
-        <code className="bg-forest/5 px-1">npx prisma studio</code> or we can
-        add full forms in the next iteration.
-      </p>
+      <p className="mt-8 text-sm text-charcoal/50">Use the Edit and Delete actions above to manage puppies directly from the admin dashboard.</p>
     </div>
   );
 }
