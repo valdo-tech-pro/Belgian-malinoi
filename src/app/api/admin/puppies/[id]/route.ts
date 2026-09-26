@@ -67,10 +67,15 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ i
 
   try {
     const { id } = await params;
-    await prisma.puppy.delete({ where:{ id } });
+    await prisma.$transaction(async (tx) => {
+      await tx.appointment.updateMany({ where: { puppyId: id }, data: { puppyId: null } });
+      await tx.inquiry.updateMany({ where: { puppyId: id }, data: { puppyId: null } });
+      await tx.application.updateMany({ where: { puppyId: id }, data: { puppyId: null } });
+      await tx.puppy.delete({ where: { id } });
+    });
     return NextResponse.json({ success:true });
   } catch (error:any) {
     if (error?.code === "P2025") return NextResponse.json({ error:"Puppy not found" }, { status:404 });
-    return NextResponse.json({ error:"Unable to delete this puppy. It may have related records." }, { status:409 });
+    return NextResponse.json({ error:"Unable to delete this puppy right now. Please try again." }, { status:409 });
   }
 }
