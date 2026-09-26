@@ -97,6 +97,9 @@ export default async function AdminDashboard() {
         <Link href="/admin/inquiries" className="block p-4 bg-white border border-forest/10 hover:border-gold transition">
           View Inquiries →
         </Link>
+        <Link href="/admin/reviews" className="block p-4 bg-white border border-forest/10 hover:border-gold transition">
+          Review Customer Reviews ({reviewCount}) →
+        </Link>
         <Link href="/" className="block p-4 bg-white border border-forest/10 hover:border-gold transition">
           View Public Site →
         </Link>
